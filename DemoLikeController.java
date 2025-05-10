@@ -26,10 +26,10 @@ public class DemoLikeController {
     public ResponseEntity<String> likeUser(@PathVariable String targetUserId, @AuthenticationPrincipal User user) {
         try {
             likeService.likeUser(new ObjectId(targetUserId), user.getUserId());
-            return ResponseEntity.ok("[DEMO] Лайк успешно добавлен!");
+            return ResponseEntity.ok("[DEMO] Like added successfully!");
         } catch (Exception e) {
-            log.error("[DEMO] Ошибка при добавлении лайка: {}", e.getMessage());
-            return ResponseEntity.badRequest().body("[DEMO] Ошибка: " + e.getMessage());
+            log.error("[DEMO] Error adding like: {}", e.getMessage());
+            return ResponseEntity.badRequest().body("[DEMO] Error: " + e.getMessage());
         }
     }
 
@@ -41,8 +41,8 @@ public class DemoLikeController {
         try {
             return ResponseEntity.ok(likeService.getLikedUsers(user.getUserId()));
         } catch (Exception e) {
-            log.error("[DEMO] Ошибка при получении лайков: {}", e.getMessage());
-            return ResponseEntity.badRequest().body("[DEMO] Ошибка: " + e.getMessage());
+            log.error("[DEMO] Error retrieving likes: {}", e.getMessage());
+            return ResponseEntity.badRequest().body("[DEMO] Error: " + e.getMessage());
         }
     }
 }

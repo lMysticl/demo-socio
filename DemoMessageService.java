@@ -31,7 +31,7 @@ public class DemoMessageService implements MessageService {
             return saved;
         } catch (Exception e) {
             
-            throw new demo.exception.MessageOperationException("Ошибка при сохранении сообщения", e);
+            throw e;
         }
     }
 
@@ -44,7 +44,7 @@ public class DemoMessageService implements MessageService {
             return saved;
         } catch (Exception e) {
             
-            throw new demo.exception.MessageOperationException("Ошибка при сохранении сообщения (DTO)", e);
+            throw e;
         }
     }
 

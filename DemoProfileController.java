@@ -28,8 +28,8 @@ public class DemoProfileController {
             Profile profile = profileService.getProfileByUserId(user.getUserId());
             return ResponseEntity.ok(profile);
         } catch (Exception e) {
-            log.error("[DEMO] Ошибка при получении профиля: {}", e.getMessage());
-            return ResponseEntity.badRequest().body("[DEMO] Ошибка: " + e.getMessage());
+            log.error("[DEMO] Error retrieving profile: {}", e.getMessage());
+            return ResponseEntity.badRequest().body("[DEMO] Error: " + e.getMessage());
         }
     }
 
